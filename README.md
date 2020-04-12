@@ -44,30 +44,30 @@ Belirli bir WordNet'i yüklemek için
 
 Tüm synsetleri getirmek için
 
-	Collection<SynSet> synSetList()
+	List<SynSet> SynSetList()
 
 Belirli bir synseti getirmek için
 
-	SynSet getSynSetWithId(String synSetId)
+	SynSet GetSynSetWithId(string synSetId)
 
 Belirli bir kelimenin tüm anlamlarını (Synsetlerini) getirmek için
 
-	ArrayList<SynSet> getSynSetsWithLiteral(String literal)
+	List<SynSet> GetSynSetsWithLiteral(string literal)
 
 ## SynSet
 
 Bir synsetin eş anlamlı literallerini bulmak için Synonym elde edilir.
 
-	Synonym getSynonym()
+	Synonym GetSynonym()
 	
 Bir synsetin içindeki Relation'ları indeks bazlı elde etmek için
 
-	Relation getRelation(int index)
+	Relation GetRelation(int index)
 
 metodu ile bulunur. Örneğin, bir synsetin içindeki tüm ilişkiler
 
-	for (int i = 0; i < synset.relationSize(); i++){
-		relation = synset.getRelation(i);
+	for (int i = 0; i < synset.RelationSize(); i++){
+		relation = synset.GetRelation(i);
 		...
 	}
 
@@ -75,12 +75,12 @@ metodu ile bulunur. Örneğin, bir synsetin içindeki tüm ilişkiler
 
 Synonym'in içindeki literaller indeks bazlı
 
-	Literal getLiteral(int index)
+	Literal GetLiteral(int index)
 
 metodu ile bulunur. Örneğin, bir synonym içindeki tüm literaller
 
-	for (int i = 0; i < synonym.literalSize(); i++){
-		literal = synonym.getLiteral(i);
+	for (int i = 0; i < synonym.LiteralSize(); i++){
+		literal = synonym.GetLiteral(i);
 		...
 	}
 
