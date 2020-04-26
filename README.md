@@ -24,7 +24,10 @@ The structure of a sample synset is as follows:
 
 Each entry in the dictionary is enclosed by <SYNSET> and </SYNSET> tags. Synset members are represented as literals and their sense numbers. <ID> shows the unique identifier given to the synset. <POS> and <DEF> tags denote part of speech and definition, respectively. As for the <EXAMPLE> tag, it gives a sample sentence for the synset.
 
-------------------------------------------------
+For Developers
+============
+
+You can also see [Java](https://github.com/starlangsoftware/TurkishWordNet), [Python](https://github.com/starlangsoftware/TurkishWordNet-Py), or [C++](https://github.com/starlangsoftware/TurkishWordNet-CPP) repository.
 
 Detailed Description
 ============
