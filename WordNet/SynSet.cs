@@ -440,7 +440,7 @@ namespace WordNet
                 {
                     if (relation.GetType() == InterlingualDependencyType.SYNONYM)
                     {
-                        SynSet second = secondLanguage.GetSynSetWithId(relation.GetName());
+                        var second = secondLanguage.GetSynSetWithId(relation.GetName());
                         if (second != null)
                         {
                             result.Add(second);

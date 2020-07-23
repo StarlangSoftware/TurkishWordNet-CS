@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.2</TargetFramework>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageId>NlpToolkit-WordNet</PackageId>
+        <PackageVersion>1.0.2</PackageVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <None Remove="english_exception.xml" />
+      <EmbeddedResource Include="english_exception.xml" />
+      <None Remove="english_wordnet_version_31.xml" />
+      <EmbeddedResource Include="english_wordnet_version_31.xml" />
+      <None Remove="ili-mapping.txt" />
+      <EmbeddedResource Include="ili-mapping.txt" />
+      <None Remove="mapping.txt" />
+      <EmbeddedResource Include="mapping.txt" />
+      <None Remove="turkish_wordnet.xml" />
+      <EmbeddedResource Include="turkish_wordnet.xml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="NlpToolkit-MorphologicalAnalysis" Version="1.0.3" />
+    </ItemGroup>
+
+</Project>

@@ -14,7 +14,7 @@ namespace WordNet
         private SortedDictionary<string, SynSet> _synSetList;
         private SortedDictionary<string, List<Literal>> _literalList;
         private readonly CultureInfo _locale;
-        private readonly Dictionary<string, ExceptionalWord> _exceptionList = null;
+        private readonly Dictionary<string, List<ExceptionalWord>> _exceptionList;
         private Dictionary<string, List<SynSet>> _interlingualList;
 
         private void LoadWordNet(Stream stream)
@@ -206,8 +206,10 @@ namespace WordNet
          */
         public void ReadExceptionFile(string exceptionFileName)
         {
+            var assembly = typeof(WordNet).Assembly;
+            var stream = assembly.GetManifestResourceStream("WordNet." + exceptionFileName);
             var doc = new XmlDocument();
-            doc.Load(exceptionFileName);
+            doc.Load(stream);
             foreach (XmlNode wordNode in doc.DocumentElement.ChildNodes)
             {
                 var wordName = wordNode.Attributes["name"].Value;
@@ -232,7 +234,17 @@ namespace WordNet
                         break;
                 }
 
-                _exceptionList[wordName] = new ExceptionalWord(wordName, rootForm, pos);
+                List<ExceptionalWord> rootList;
+                if (_exceptionList.ContainsKey(wordName))
+                {
+                    rootList = _exceptionList[wordName];
+                }
+                else
+                {
+                    rootList = new List<ExceptionalWord>();
+                }
+                rootList.Add(new ExceptionalWord(wordName, rootForm, pos));
+                _exceptionList[wordName] = rootList;
             }
         }
 
@@ -261,6 +273,7 @@ namespace WordNet
             _synSetList = new SortedDictionary<string, SynSet>();
             _literalList = new SortedDictionary<string, List<Literal>>();
             _locale = new CultureInfo("en");
+            _exceptionList = new Dictionary<string, List<ExceptionalWord>>();
             ReadExceptionFile("english_exception.xml");
             var assembly = typeof(WordNet).Assembly;
             var stream = assembly.GetManifestResourceStream("WordNet." + fileName);
@@ -587,15 +600,17 @@ namespace WordNet
          */
         public List<string> GetLiteralsWithPossibleModifiedLiteral(string literal)
         {
-            List<string> result = new List<string>();
-            result.Add(literal);
-            string wordWithoutLastOne = literal.Substring(0, literal.Length - 1);
-            string wordWithoutLastTwo = literal.Substring(0, literal.Length - 2);
+            var result = new List<string> {literal};
+            var wordWithoutLastOne = literal.Substring(0, literal.Length - 1);
+            var wordWithoutLastTwo = literal.Substring(0, literal.Length - 2);
 
-            string wordWithoutLastThree = literal.Substring(0, literal.Length - 3);
-            if (_exceptionList.ContainsKey(literal) && _literalList.ContainsKey(_exceptionList[literal].GetRoot()))
+            var wordWithoutLastThree = literal.Substring(0, literal.Length - 3);
+            if (_exceptionList.ContainsKey(literal))
             {
-                result.Add(_exceptionList[literal].GetRoot());
+                foreach (var exceptionalWord in _exceptionList[literal])
+                {
+                    result.Add(exceptionalWord.GetRoot());
+                } 
             }
 
             if (literal.EndsWith("s") && _literalList.ContainsKey(wordWithoutLastOne))
@@ -677,7 +692,7 @@ namespace WordNet
          */
         public void AddReverseRelation(SynSet synSet, SemanticRelation semanticRelation)
         {
-            SynSet otherSynSet = GetSynSetWithId(semanticRelation.GetName());
+            var otherSynSet = GetSynSetWithId(semanticRelation.GetName());
             if (otherSynSet != null && SemanticRelation.Reverse(semanticRelation.GetRelationType()) !=
                 SemanticRelationType.NONE)
             {
@@ -746,7 +761,7 @@ namespace WordNet
                 if (!parse.IsPunctuation() && !parse.IsCardinal() && !parse.IsReal())
                 {
                     var possibleWords = fsm.GetPossibleWords(parse, metaParse);
-                    foreach (string possibleWord in possibleWords)
+                    foreach (var possibleWord in possibleWords)
                     {
                         result = result.Union(GetLiteralsWithName(possibleWord)).ToList();
                     }
@@ -1103,7 +1118,7 @@ namespace WordNet
                 var literals = _literalList[name];
                 for (var i = 0; i < literals.Count; i++)
                 {
-                    for (int j = i + 1; j < literals.Count; j++)
+                    for (var j = i + 1; j < literals.Count; j++)
                     {
                         if (literals[i].GetSense() == literals[j].GetSense() &&
                             literals[i].GetName() == literals[j].GetName())
@@ -1281,7 +1296,7 @@ namespace WordNet
          */
         public int FindLCSdepth(List<string> pathToRootOfSynSet1, List<string> pathToRootOfSynSet2)
         {
-            Tuple<string, int> temp = FindLCS(pathToRootOfSynSet1, pathToRootOfSynSet2);
+            var temp = FindLCS(pathToRootOfSynSet1, pathToRootOfSynSet2);
             if (temp != null)
             {
                 return temp.Item2;
@@ -1299,7 +1314,7 @@ namespace WordNet
          */
         public string FindLCSid(List<string> pathToRootOfSynSet1, List<string> pathToRootOfSynSet2)
         {
-            Tuple<string, int> temp = FindLCS(pathToRootOfSynSet1, pathToRootOfSynSet2);
+            var temp = FindLCS(pathToRootOfSynSet1, pathToRootOfSynSet2);
             if (temp != null)
             {
                 return temp.Item1;

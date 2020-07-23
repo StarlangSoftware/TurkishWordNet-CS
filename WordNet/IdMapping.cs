@@ -36,7 +36,7 @@ namespace WordNet
             var s = streamReader.ReadLine();
             while (s != null)
             {
-                string[] mapInfo = s.Split("->");
+                var mapInfo = s.Split("->");
                 _map[mapInfo[0]] = mapInfo[1];
                 s = streamReader.ReadLine();
             }
