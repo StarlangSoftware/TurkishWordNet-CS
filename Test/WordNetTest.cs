@@ -184,11 +184,11 @@ namespace Test
             Assert.AreEqual(13, turkish.FindPathToRoot(turkish.GetSynSetWithId("TUR10-1198750")).Count);
             Assert.AreEqual(14, turkish.FindPathToRoot(turkish.GetSynSetWithId("TUR10-0412120")).Count);
             Assert.AreEqual(15, turkish.FindPathToRoot(turkish.GetSynSetWithId("TUR10-1116690")).Count);
-            Assert.AreEqual(16, turkish.FindPathToRoot(turkish.GetSynSetWithId("TUR10-0621870")).Count);
-            Assert.AreEqual(17, turkish.FindPathToRoot(turkish.GetSynSetWithId("TUR10-0822980")).Count);
-            Assert.AreEqual(18, turkish.FindPathToRoot(turkish.GetSynSetWithId("TUR10-0178450")).Count);
-            Assert.AreEqual(19, turkish.FindPathToRoot(turkish.GetSynSetWithId("TUR10-0600460")).Count);
-            Assert.AreEqual(20, turkish.FindPathToRoot(turkish.GetSynSetWithId("TUR10-0656390")).Count);
+            Assert.AreEqual(13, turkish.FindPathToRoot(turkish.GetSynSetWithId("TUR10-0621870")).Count);
+            Assert.AreEqual(14, turkish.FindPathToRoot(turkish.GetSynSetWithId("TUR10-0822980")).Count);
+            Assert.AreEqual(15, turkish.FindPathToRoot(turkish.GetSynSetWithId("TUR10-0178450")).Count);
+            Assert.AreEqual(16, turkish.FindPathToRoot(turkish.GetSynSetWithId("TUR10-0600460")).Count);
+            Assert.AreEqual(17, turkish.FindPathToRoot(turkish.GetSynSetWithId("TUR10-0656390")).Count);
         }
     }
 }
