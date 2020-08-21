@@ -1,6 +1,5 @@
 using Dictionary.Dictionary;
 using NUnit.Framework;
-using WordNet;
 
 namespace Test
 {
