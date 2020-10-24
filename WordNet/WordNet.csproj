@@ -4,7 +4,7 @@
         <TargetFramework>netcoreapp2.2</TargetFramework>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageId>NlpToolkit-WordNet</PackageId>
-        <PackageVersion>1.0.9</PackageVersion>
+        <PackageVersion>1.0.10</PackageVersion>
     </PropertyGroup>
 
     <ItemGroup>
