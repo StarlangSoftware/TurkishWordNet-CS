@@ -103,11 +103,11 @@ namespace Test
 
         public void TestGetSynSetsWithPartOfSpeech()
         {
-            Assert.AreEqual(43846, turkish.GetSynSetsWithPartOfSpeech(Pos.NOUN).Count);
-            Assert.AreEqual(17675, turkish.GetSynSetsWithPartOfSpeech(Pos.VERB).Count);
-            Assert.AreEqual(12358, turkish.GetSynSetsWithPartOfSpeech(Pos.ADJECTIVE).Count);
-            Assert.AreEqual(2523, turkish.GetSynSetsWithPartOfSpeech(Pos.ADVERB).Count);
-            Assert.AreEqual(339, turkish.GetSynSetsWithPartOfSpeech(Pos.INTERJECTION).Count);
+            Assert.AreEqual(44074, turkish.GetSynSetsWithPartOfSpeech(Pos.NOUN).Count);
+            Assert.AreEqual(17791, turkish.GetSynSetsWithPartOfSpeech(Pos.VERB).Count);
+            Assert.AreEqual(12416, turkish.GetSynSetsWithPartOfSpeech(Pos.ADJECTIVE).Count);
+            Assert.AreEqual(2550, turkish.GetSynSetsWithPartOfSpeech(Pos.ADVERB).Count);
+            Assert.AreEqual(342, turkish.GetSynSetsWithPartOfSpeech(Pos.INTERJECTION).Count);
             Assert.AreEqual(68, turkish.GetSynSetsWithPartOfSpeech(Pos.PRONOUN).Count);
             Assert.AreEqual(60, turkish.GetSynSetsWithPartOfSpeech(Pos.CONJUNCTION).Count);
             Assert.AreEqual(29, turkish.GetSynSetsWithPartOfSpeech(Pos.PREPOSITION).Count);
@@ -161,7 +161,7 @@ namespace Test
 
         public void TestSize()
         {
-            Assert.AreEqual(76898, turkish.Size());
+            Assert.AreEqual(77330, turkish.Size());
         }
 
         [Test]
