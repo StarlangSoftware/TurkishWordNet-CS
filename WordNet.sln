@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordNet", "WordNet\WordNet.csproj", "{43CF8081-5C1D-459C-B227-35A7C89E48FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{8C5B4117-C234-4831-93B1-5E994871EDA6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{43CF8081-5C1D-459C-B227-35A7C89E48FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43CF8081-5C1D-459C-B227-35A7C89E48FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43CF8081-5C1D-459C-B227-35A7C89E48FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43CF8081-5C1D-459C-B227-35A7C89E48FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C5B4117-C234-4831-93B1-5E994871EDA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C5B4117-C234-4831-93B1-5E994871EDA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C5B4117-C234-4831-93B1-5E994871EDA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C5B4117-C234-4831-93B1-5E994871EDA6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
