@@ -4,7 +4,7 @@
         <TargetFramework>netcoreapp2.2</TargetFramework>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageId>NlpToolkit-WordNet</PackageId>
-        <PackageVersion>1.0.12</PackageVersion>
+        <PackageVersion>1.0.13</PackageVersion>
     </PropertyGroup>
 
     <ItemGroup>
@@ -21,7 +21,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="NlpToolkit-MorphologicalAnalysis" Version="1.0.5" />
+      <PackageReference Include="NlpToolkit-MorphologicalAnalysis" Version="1.0.13" />
     </ItemGroup>
 
 </Project>
