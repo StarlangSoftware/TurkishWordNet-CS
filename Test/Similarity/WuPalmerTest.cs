@@ -13,7 +13,7 @@ namespace Test.Similarity
             Assert.AreEqual(0.9697,
                 lch.ComputeSimilarity(turkish.GetSynSetWithId("TUR10-0656390"),
                     turkish.GetSynSetWithId("TUR10-0600460")), 0.0001);
-            Assert.AreEqual(0.25,
+            Assert.AreEqual(0.2857,
                 lch.ComputeSimilarity(turkish.GetSynSetWithId("TUR10-0412120"),
                     turkish.GetSynSetWithId("TUR10-0755370")), 0.0001);
             Assert.AreEqual(0.3636,

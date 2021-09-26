@@ -4,7 +4,7 @@
         <TargetFramework>netcoreapp2.2</TargetFramework>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageId>NlpToolkit-WordNet</PackageId>
-        <PackageVersion>1.0.13</PackageVersion>
+        <PackageVersion>1.0.14</PackageVersion>
     </PropertyGroup>
 
     <ItemGroup>
@@ -17,7 +17,45 @@
       <None Remove="mapping.txt" />
       <EmbeddedResource Include="mapping.txt" />
       <None Remove="turkish_wordnet.xml" />
-      <EmbeddedResource Include="turkish_wordnet.xml" />
+      <EmbeddedResource Include="turkish_wordnet.xml">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <None Update="turkish1944_dictionary.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="turkish1944_wordnet.xml">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="turkish1955_dictionary.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="turkish1955_wordnet.xml">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="turkish1959_dictionary.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="turkish1959_wordnet.xml">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="turkish1966_dictionary.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="turkish1966_wordnet.xml">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="turkish1969_dictionary.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="turkish1969_wordnet.xml">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="turkish1974_dictionary.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="turkish1974_wordnet.xml">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
     </ItemGroup>
 
     <ItemGroup>
