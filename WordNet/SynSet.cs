@@ -14,6 +14,7 @@ namespace WordNet
         private readonly Synonym _synonym;
         private readonly List<Relation> _relations;
         private string _note;
+        private string _wikiPage;
         private int _bcs;
 
         /**
@@ -376,6 +377,26 @@ namespace WordNet
         }
 
         /**
+         * <summary>Mutator for the wiki page.</summary>
+         *
+         * <param name="note">string wiki page to be set</param>
+         */
+        public void SetWikiPage(string wikiPage)
+        {
+            this._wikiPage = wikiPage;
+        }
+
+        /**
+         * <summary>Accessor for the wiki Page.</summary>
+         *
+         * <returns>string wiki page</returns>
+         */
+        public string GetWikiPage()
+        {
+            return _wikiPage;
+        }
+
+        /**
          * <summary>Appends the specified Relation to the end of relations list.</summary>
          *
          * <param name="relation">element to be appended to the list</param>
@@ -699,6 +720,11 @@ namespace WordNet
                                       "</TYPE></SR>");
                         break;
                 }
+            }
+
+            if (_wikiPage != null)
+            {
+                outfile.Write("<WIKI>" + _wikiPage + "</WIKI>");
             }
 
             if (_definition != null)

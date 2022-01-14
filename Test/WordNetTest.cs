@@ -1,5 +1,6 @@
 using Dictionary.Dictionary;
 using NUnit.Framework;
+using WordNet;
 
 namespace Test
 {
@@ -20,13 +21,25 @@ namespace Test
             foreach (var synSet in turkish.SynSetList()){
                 literalCount += synSet.GetSynonym().LiteralSize();
             }
-            Assert.AreEqual(109059, literalCount);
+            Assert.AreEqual(109007, literalCount);
+        }
+
+        [Test]
+        public void TestWikiPages()
+        {
+            int count = 0;
+            foreach (var synSet in turkish.SynSetList()){
+                if (synSet.GetWikiPage() != null){
+                    count++;
+                }
+            }
+            Assert.AreEqual(10987, count);
         }
 
         [Test]
         public void TestLiteralList()
         {
-            Assert.AreEqual(81070, turkish.LiteralList().Count);
+            Assert.AreEqual(81062, turkish.LiteralList().Count);
         }
 
         [Test]
@@ -103,10 +116,10 @@ namespace Test
 
         public void TestGetSynSetsWithPartOfSpeech()
         {
-            Assert.AreEqual(44050, turkish.GetSynSetsWithPartOfSpeech(Pos.NOUN).Count);
-            Assert.AreEqual(17773, turkish.GetSynSetsWithPartOfSpeech(Pos.VERB).Count);
-            Assert.AreEqual(12410, turkish.GetSynSetsWithPartOfSpeech(Pos.ADJECTIVE).Count);
-            Assert.AreEqual(2548, turkish.GetSynSetsWithPartOfSpeech(Pos.ADVERB).Count);
+            Assert.AreEqual(43871, turkish.GetSynSetsWithPartOfSpeech(Pos.NOUN).Count);
+            Assert.AreEqual(17776, turkish.GetSynSetsWithPartOfSpeech(Pos.VERB).Count);
+            Assert.AreEqual(12406, turkish.GetSynSetsWithPartOfSpeech(Pos.ADJECTIVE).Count);
+            Assert.AreEqual(2549, turkish.GetSynSetsWithPartOfSpeech(Pos.ADVERB).Count);
             Assert.AreEqual(339, turkish.GetSynSetsWithPartOfSpeech(Pos.INTERJECTION).Count);
             Assert.AreEqual(68, turkish.GetSynSetsWithPartOfSpeech(Pos.PRONOUN).Count);
             Assert.AreEqual(61, turkish.GetSynSetsWithPartOfSpeech(Pos.CONJUNCTION).Count);
@@ -161,7 +174,7 @@ namespace Test
 
         public void TestSize()
         {
-            Assert.AreEqual(77279, turkish.Size());
+            Assert.AreEqual(77100, turkish.Size());
         }
 
         [Test]

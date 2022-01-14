@@ -40,6 +40,9 @@ namespace WordNet
                         case "DEF" when currentSynSet != null:
                             currentSynSet.SetDefinition(partNode.InnerText);
                             break;
+                        case "WIKI" when currentSynSet != null:
+                            currentSynSet.SetWikiPage(partNode.InnerText);
+                            break;
                         case "EXAMPLE" when currentSynSet != null:
                             currentSynSet.SetExample(partNode.InnerText);
                             break;
