@@ -180,6 +180,13 @@ namespace WordNet
                                                                   " does not contain type value");
                                             }
                                         }
+                                        else
+                                        {
+                                            if (srNode.Name == "ORIGIN")
+                                            {
+                                                currentLiteral.SetOrigin(srNode.FirstChild.InnerText);
+                                            }
+                                        }
 
                                         srNode = srNode.NextSibling;
                                     }
