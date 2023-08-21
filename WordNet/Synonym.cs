@@ -40,6 +40,30 @@ namespace WordNet
             }
         }
 
+        
+        public List<Synonym> GetUniqueLiterals(){
+            var literalGroups = new List<Synonym>();
+            var groupNo = -1;
+            var synonym = new Synonym();
+            foreach (var literal in _literals){
+                if (literal.GetGroupNo() != groupNo){
+                    if (groupNo != -1){
+                        literalGroups.Add(synonym);
+                    }
+                    groupNo = literal.GetGroupNo();
+                    synonym = new Synonym();
+                } else {
+                    if (groupNo == 0){
+                        literalGroups.Add(synonym);
+                        synonym = new Synonym();
+                    }
+                }
+                synonym.AddLiteral(literal);
+            }
+            literalGroups.Add(synonym);
+            return literalGroups;
+        }
+
         /**
          * <summary>Returns the element at the specified position in literals list.</summary>
          *

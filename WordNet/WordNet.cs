@@ -186,6 +186,13 @@ namespace WordNet
                                             {
                                                 currentLiteral.SetOrigin(srNode.FirstChild.InnerText);
                                             }
+                                            else
+                                            {
+                                                if (srNode.Name == "GROUP")
+                                                {
+                                                    currentLiteral.SetGroupNo(int.Parse(srNode.FirstChild.InnerText));
+                                                }
+                                            }
                                         }
 
                                         srNode = srNode.NextSibling;

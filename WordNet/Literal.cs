@@ -10,6 +10,7 @@ namespace WordNet
         private string _synSetId;
         private string _origin;
         private readonly List<Relation> _relations;
+        private int _groupNo;
 
         /**
          * <summary>A constructor that initializes name, sense, SynSet ID and the relations.</summary>
@@ -92,6 +93,26 @@ namespace WordNet
             this._origin = origin;
         }
 
+        /**
+         * <summary>Accessor method to return the groupNo of the literal.</summary>
+         *
+         * <returns>groupNo of the literal</returns>
+         */
+        public int GetGroupNo()
+        {
+            return _groupNo;
+        }
+
+        /**
+         * <summary>Mutator method to set the origin with specified groupNo.</summary>
+         *
+         * <param name="groupNo">groupNo of the literal to set</param>
+         */
+        public void SetGroupNo(int groupNo)
+        {
+            this._groupNo = groupNo;
+        }
+        
         /**
          * <summary>Mutator method to set the sense index of the literal.</summary>
          *

@@ -1,6 +1,6 @@
+using DataStructure;
 using Dictionary.Dictionary;
 using NUnit.Framework;
-using WordNet;
 
 namespace Test
 {
@@ -46,14 +46,46 @@ namespace Test
         public void TestTotalForeignLiterals()
         {
             var count = 0;
-            foreach (SynSet synSet in turkish.SynSetList()){
-                for (int i = 0; i < synSet.GetSynonym().LiteralSize(); i++){
+            foreach (var synSet in turkish.SynSetList()){
+                for (var i = 0; i < synSet.GetSynonym().LiteralSize(); i++){
                     if (synSet.GetSynonym().GetLiteral(i).GetOrigin() != null){
                         count++;
                     }
                 }
             }
             Assert.AreEqual(3981, count);
+        }
+
+        [Test]
+        public void TestTotalGroupedLiterals()
+        {
+            var count = 0;
+            foreach (var synSet in turkish.SynSetList()){
+                for (var i = 0; i < synSet.GetSynonym().LiteralSize(); i++){
+                    if (synSet.GetSynonym().GetLiteral(i).GetGroupNo() != 0){
+                        count++;
+                    }
+                }
+            }
+            Assert.AreEqual(5973, count);
+        }
+
+        [Test]
+        public void TestGroupSize()
+        {
+            var groups = new CounterHashMap<int>();
+            foreach (var synSet in turkish.SynSetList()){
+                var literalGroups = synSet.GetSynonym().GetUniqueLiterals();
+                foreach (var synonym in literalGroups){
+                    if (synonym.GetLiteral(0).GetGroupNo() != 0){
+                        groups.Put(synonym.LiteralSize());
+                    }
+                }
+            }
+            Assert.AreEqual(0, groups.Count(1));
+            Assert.AreEqual(2949, groups.Count(2));
+            Assert.AreEqual(21, groups.Count(3));
+            Assert.AreEqual(3, groups.Count(4));
         }
 
         [Test]
