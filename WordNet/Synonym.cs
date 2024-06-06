@@ -39,8 +39,14 @@ namespace WordNet
                 _literals.Insert(0, literal);
             }
         }
-
         
+        /// <summary>
+        /// Extracts literal groups as synonym lists and returns them as an array list. Each literal group consists of
+        /// literals with the same group number except 0 which represents single literals. For example let say 'ab', 'âb',
+        /// 'su' are 3 literals in the same synset, this method will return for that synset two synonyms: 'ab' and 'âb' are
+        /// in one synonym and 'su' is in another synonym.
+        /// </summary>
+        /// <returns>Array list of literal groups represented as synonyms</returns>
         public List<Synonym> GetUniqueLiterals(){
             var literalGroups = new List<Synonym>();
             var groupNo = -1;

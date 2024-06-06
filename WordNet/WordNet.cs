@@ -17,6 +17,15 @@ namespace WordNet
         private readonly Dictionary<string, List<ExceptionalWord>> _exceptionList;
         private Dictionary<string, List<SynSet>> _interlingualList;
 
+        /// <summary>
+        /// Reads a wordnet from a Xml file. A wordnet consists of a list of synsets encapsulated inside SYNSET tag. A synset
+        /// has an id (represented with ID tag), a set of literals encapsulated inside SYNONYM tag, part of speech tag
+        /// (represented with POS tag), a set of semantic relations encapsulated inside SR tag, a definition (represented
+        /// with DEF tag), and a possible example (represented with EXAMPLE tag). Each literal has a name, possibly a group
+        /// number (represented with GROUP tag), a sense number (represented with SENSE tag) and a set of semantic relations
+        /// encapsulated inside SR tag. A semantic relation has a name and a type (represented with TYPE tag).
+        /// </summary>
+        /// <param name="stream">File stream that contains the wordnet.</param>
         private void LoadWordNet(Stream stream)
         {
             var doc = new XmlDocument();
@@ -358,6 +367,14 @@ namespace WordNet
             return _locale;
         }
 
+        /// <summary>
+        /// Updates the wordnet according to the situation that an old synset replaced with a new synset. There are three
+        /// possibilities: (i) The new synset has a relation with the old synset, then the relation is removed,
+        /// (ii) A synset has the same type of relation with old synset and new synset, then the relation is removed,
+        /// (iii) None of the above, then the old synset id in the relation is replaced with the new synset id.
+        /// </summary>
+        /// <param name="oldSynSet">Old synset to be replaced</param>
+        /// <param name="newSynSet">New synset replacing the old synset</param>
         private void UpdateAllRelationsAccordingToNewSynSet(SynSet oldSynSet, SynSet newSynSet)
         {
             foreach (var synSet in SynSetList())
