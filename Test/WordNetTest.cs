@@ -21,7 +21,7 @@ namespace Test
             foreach (var synSet in turkish.SynSetList()){
                 literalCount += synSet.GetSynonym().LiteralSize();
             }
-            Assert.AreEqual(110258, literalCount);
+            Assert.AreEqual(110259, literalCount);
         }
 
         [Test]
@@ -39,7 +39,7 @@ namespace Test
         [Test]
         public void TestLiteralList()
         {
-            Assert.AreEqual(82275, turkish.LiteralList().Count);
+            Assert.AreEqual(82276, turkish.LiteralList().Count);
         }
 
         [Test]
@@ -162,12 +162,12 @@ namespace Test
 
         public void TestGetSynSetsWithPartOfSpeech()
         {
-            Assert.AreEqual(43884, turkish.GetSynSetsWithPartOfSpeech(Pos.NOUN).Count);
-            Assert.AreEqual(17772, turkish.GetSynSetsWithPartOfSpeech(Pos.VERB).Count);
-            Assert.AreEqual(12410, turkish.GetSynSetsWithPartOfSpeech(Pos.ADJECTIVE).Count);
+            Assert.AreEqual(43882, turkish.GetSynSetsWithPartOfSpeech(Pos.NOUN).Count);
+            Assert.AreEqual(17773, turkish.GetSynSetsWithPartOfSpeech(Pos.VERB).Count);
+            Assert.AreEqual(12406, turkish.GetSynSetsWithPartOfSpeech(Pos.ADJECTIVE).Count);
             Assert.AreEqual(2549, turkish.GetSynSetsWithPartOfSpeech(Pos.ADVERB).Count);
             Assert.AreEqual(1552, turkish.GetSynSetsWithPartOfSpeech(Pos.INTERJECTION).Count);
-            Assert.AreEqual(68, turkish.GetSynSetsWithPartOfSpeech(Pos.PRONOUN).Count);
+            Assert.AreEqual(74, turkish.GetSynSetsWithPartOfSpeech(Pos.PRONOUN).Count);
             Assert.AreEqual(61, turkish.GetSynSetsWithPartOfSpeech(Pos.CONJUNCTION).Count);
             Assert.AreEqual(30, turkish.GetSynSetsWithPartOfSpeech(Pos.PREPOSITION).Count);
         }
@@ -220,7 +220,7 @@ namespace Test
 
         public void TestSize()
         {
-            Assert.AreEqual(78326, turkish.Size());
+            Assert.AreEqual(78327, turkish.Size());
         }
 
         [Test]

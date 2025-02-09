@@ -3,8 +3,8 @@
     <PropertyGroup>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageId>NlpToolkit-WordNet</PackageId>
-        <PackageVersion>1.0.17</PackageVersion>
-        <TargetFrameworks>netcoreapp3.1;net8.0</TargetFrameworks>
+        <PackageVersion>1.0.18</PackageVersion>
+        <TargetFramework>net8.0</TargetFramework>
     </PropertyGroup>
 
     <ItemGroup>
@@ -59,7 +59,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="NlpToolkit-MorphologicalAnalysis" Version="1.0.21" />
+      <PackageReference Include="NlpToolkit-MorphologicalAnalysis" Version="1.0.23" />
     </ItemGroup>
 
 </Project>
