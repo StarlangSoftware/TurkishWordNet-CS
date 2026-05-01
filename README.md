@@ -49,7 +49,17 @@ The structure of a sample synset is as follows:
 	</SYNSET>
 
 Each entry in the dictionary is enclosed by \<SYNSET> and \</SYNSET> tags. Synset members are represented as literals and their sense numbers. \<ID> shows the unique identifier given to the synset. \<POS> and \<DEF> tags denote part of speech and definition, respectively. As for the \<EXAMPLE> tag, it gives a sample sentence for the synset.
-	
+
+Simple Web Interface
+============
+[Turkish WordNet Link 1](http://104.247.163.162/nlptoolkit/turkish-wordnet.html) [Turkish WordNet Link 2](https://starlangsoftware.github.io/nlptoolkit-web-simple/turkish-wordnet.html)
+
+[Turkish WordNet Tree Link 1](http://104.247.163.162/nlptoolkit/turkish-wordnet-tree.html) [Turkish WordNet Tree Link 2](https://starlangsoftware.github.io/nlptoolkit-web-simple/turkish-wordnet-tree.html)
+
+[English WordNet Link 1](http://104.247.163.162/nlptoolkit/english-wordnet.html) [English WordNet Link 2](https://starlangsoftware.github.io/nlptoolkit-web-simple/english-wordnet.html)
+
+[English WordNet Tree Link 1](http://104.247.163.162/nlptoolkit/english-wordnet-tree.html) [English WordNet Tree Link 2](https://starlangsoftware.github.io/nlptoolkit-web-simple/english-wordnet-tree.html)
+
 Video Lectures
 ============
 
@@ -58,7 +68,7 @@ Video Lectures
 For Developers
 ============
 
-You can also see [Java](https://github.com/starlangsoftware/TurkishWordNet), [Python](https://github.com/starlangsoftware/TurkishWordNet-Py), [Cython](https://github.com/starlangsoftware/TurkishWordNet-Cy), [Swift](https://github.com/starlangsoftware/TurkishWordNet-Swift), [C](https://github.com/starlangsoftware/TurkishWordNet-C), [Js](https://github.com/starlangsoftware/TurkishWordNet-Js), or [C++](https://github.com/starlangsoftware/TurkishWordNet-CPP) repository.
+You can also see [Java](https://github.com/starlangsoftware/TurkishWordNet), [Python](https://github.com/starlangsoftware/TurkishWordNet-Py), [Cython](https://github.com/starlangsoftware/TurkishWordNet-Cy), [Swift](https://github.com/starlangsoftware/TurkishWordNet-Swift), [C](https://github.com/starlangsoftware/TurkishWordNet-C), [Js](https://github.com/starlangsoftware/TurkishWordNet-Js), [Php](https://github.com/starlangsoftware/TurkishWordNet-Php), or [C++](https://github.com/starlangsoftware/TurkishWordNet-CPP) repository.
 
 ## Requirements
 
@@ -168,3 +178,63 @@ For example, all the literals inside a synonym can be found with the following:
  	author={O. Bakay and O. Ergelen and E. Sarmis and S. Yildirim and A. Kocabalcioglu and B. N. Arican and M. Ozcelik and E. Saniyar and O. Kuyrukcu and B. 	Avar and O. T. Y{\i}ld{\i}z},
  	booktitle={Proceedings of GWC 2021}
  	}
+
+For Contibutors
+============
+
+### Resources
+1. Add resources to the project irectory. Do not forget to choose 'EmbeddedRecource' in 'Build Action' and 'Copy always' in 'Copy to output directory' in File Properties dialog. 
+   
+### C# files
+1. Do not forget to comment each function.
+```
+	/**
+	* <summary>Returns the first literal's name.</summary>
+	*
+	* <returns>the first literal's name.</returns>
+	*/
+	public string Representative()
+	{
+		return GetSynonym().GetLiteral(0).GetName();
+	}
+```
+2. Function names should follow pascal caml case.
+```
+	public string GetLongDefinition()
+```
+3. Write ToString methods, if necessary.
+4. Use var type as a standard type.
+```
+	public override bool Equals(object second)
+	{
+		var relation = (Relation) second;
+```
+5. Use standard naming for private and protected class variables. Use _ for private and capital for protected class members.
+```
+    public class SynSet
+    {
+        private string _id;
+		protected string Name;
+```
+6. Use NUnit for writing test classes. Use test setup if necessary.
+```
+   public class WordNetTest
+    {
+        WordNet.WordNet turkish;
+
+        [SetUp]
+        public void Setup()
+        {
+            turkish = new WordNet.WordNet();
+        }
+
+        [Test]
+        public void TestSynSetList()
+        {
+            var literalCount = 0;
+            foreach (var synSet in turkish.SynSetList()){
+                literalCount += synSet.GetSynonym().LiteralSize();
+            }
+            Assert.AreEqual(110259, literalCount);
+        }
+```
